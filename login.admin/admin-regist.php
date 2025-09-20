@@ -19,7 +19,7 @@
           <span></span>
         </div>
         <h3>Masuk!</h3>
-        <form action="" method="">
+        <form action="" method="" id="loginForm">
           <div class="field">
             <label for="email">Username</label>
             <input
@@ -79,5 +79,30 @@
         <img src="img/logosmart.jpg" alt="HealthCare Image" class="logo" />
       </div>
     </div>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+
+          const response = await fetch("/backend/login.php", {
+            method: "POST",
+            body: formData,
+          });
+
+          const result = await response.json();
+
+          // document.getElementById("pesan").textContent =
+          //     result.message;
+
+          console.log(result.message);
+
+          if (result.status === "sukses") {
+            // Redirect ke dashboard atau halaman lain
+            window.location.href = "/halaman_admin1-update/dashboard.php";
+          }
+        });
+    </script>
   </body>
 </html>
