@@ -1,0 +1,108 @@
+:root {
+  --primary: #2f3542;
+  --bg: #ffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #c0392b;
+}
+h1 {
+  text-align: center;
+}
+
+.about-title {
+  text-align: center;
+  margin: 30px 0; /* kasih jarak atas bawah biar lebih rapi */
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.button-img {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px #ddd;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease; /* animasi halus */
+  position: relative;
+  overflow: hidden;
+}
+.button-img img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.button-img span {
+  font-weight: 600;
+  color: #4a4a4a;
+  display: block;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin: 75px auto 0;
+  max-width: 600px;
+}
+/* Efek hover */
+.button-img:hover {
+  background-color: #c0392b; /* merah */
+  color: #fff;
+  box-shadow: 0 12px 25px rgba(192, 57, 43, 0.6);
+  transform: translateY(-6px); /* tombol naik */
+}
+
+/* Icon + teks ikut jadi putih */
+.button-img:hover .material-symbols-outlined,
+.button-img:hover span {
+  color: #fff;
+}
+
+/* Efek klik */
+.button-img:active {
+  transform: scale(0.92); /* tombol mengecil */
+  box-shadow: 0 6px 12px rgba(192, 57, 43, 0.8);
+}
+
+/* Tambah animasi "ripple" saat klik */
+.button-img::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button-img:active::after {
+  transform: scale(15);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.8s ease;
+}

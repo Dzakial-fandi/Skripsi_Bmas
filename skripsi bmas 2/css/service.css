@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.icon-circle .material-symbols-outlined {
+  font-size: 50px;
+  color: #2196f3; /* biru default */
+  transition: color 0.3s ease;
+}
+
+.icon-box:hover .icon-circle {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #ffebee; /* latar belakang merah muda */
+}
+
+.icon-box:hover .icon-circle .material-symbols-outlined {
+  color: #f44336; /* merah saat hover */
+}
+
+.icon-title {
+  font-weight: bold;
+  color: #000;
+}

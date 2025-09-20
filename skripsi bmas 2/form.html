@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Modal</title>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 5px 0;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      table th,
+      table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+      table th {
+        background: #f4f4f4;
+      }
+      .action-btn {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+      }
+      .edit {
+        background: #28a745;
+      }
+      .delete {
+        background: #dc3545;
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+      }
+      .modal-content h2 {
+        margin-top: 0;
+      }
+      .modal-content input,
+      .modal-content textarea {
+        width: 100%;
+        margin: 8px 0;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+      .close {
+        float: right;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn" onclick="openModal()">Tambah Data</button>
+
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Title</th>
+            <th>Deskripsi</th>
+            <th>Gambar</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="formModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Form Input</h2>
+        <input type="text" id="nama" placeholder="Masukkan Nama" />
+        <input type="text" id="title" placeholder="Masukkan Title" />
+        <textarea id="deskripsi" placeholder="Masukkan Deskripsi"></textarea>
+        <input type="file" id="gambar" />
+        <button class="btn" onclick="saveData()">Simpan</button>
+      </div>
+    </div>
+
+    <script>
+      let editIndex = null;
+
+      function openModal(index = null) {
+        document.getElementById("formModal").style.display = "flex";
+        editIndex = index;
+      }
+
+      function closeModal() {
+        document.getElementById("formModal").style.display = "none";
+        document.getElementById("nama").value = "";
+        document.getElementById("title").value = "";
+        document.getElementById("deskripsi").value = "";
+        document.getElementById("gambar").value = "";
+      }
+
+      function saveData() {
+        const nama = document.getElementById("nama").value;
+        const title = document.getElementById("title").value;
+        const deskripsi = document.getElementById("deskripsi").value;
+        const gambar = document.getElementById("gambar").files[0]?.name || "-";
+
+        if (!nama || !title || !deskripsi) {
+          alert("Isi semua field!");
+          return;
+        }
+
+        const table = document
+          .getElementById("dataTable")
+          .getElementsByTagName("tbody")[0];
+
+        if (editIndex === null) {
+          // tambah data baru
+          let row = table.insertRow();
+          row.insertCell(0).innerText = nama;
+          row.insertCell(1).innerText = title;
+          row.insertCell(2).innerText = deskripsi;
+          row.insertCell(3).innerText = gambar;
+
+          let aksiCell = row.insertCell(4);
+          aksiCell.innerHTML = `
+        <button class="action-btn edit" onclick="editData(this)">Edit</button>
+        <button class="action-btn delete" onclick="deleteData(this)">Hapus</button>
+      `;
+        } else {
+          // edit data
+          let row = table.rows[editIndex];
+          row.cells[0].innerText = nama;
+          row.cells[1].innerText = title;
+          row.cells[2].innerText = deskripsi;
+          row.cells[3].innerText = gambar;
+          editIndex = null;
+        }
+
+        closeModal();
+      }
+
+      function editData(btn) {
+        let row = btn.parentNode.parentNode;
+        editIndex = row.rowIndex - 1;
+
+        document.getElementById("nama").value = row.cells[0].innerText;
+        document.getElementById("title").value = row.cells[1].innerText;
+        document.getElementById("deskripsi").value = row.cells[2].innerText;
+
+        openModal(editIndex);
+      }
+
+      function deleteData(btn) {
+        let row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+      }
+    </script>
+  </body>
+</html>

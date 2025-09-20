@@ -1,0 +1,90 @@
+.page-legalitas {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.page-legalitas .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.page-legalitas .legalitas-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-legalitas .legalitas-header h1 {
+  font-size: 2.2rem;
+  color: #b91c1c;
+}
+
+.page-legalitas .legalitas-section {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.page-legalitas .legalitas-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.page-legalitas .legalitas-list {
+  list-style: none;
+  padding: 0;
+}
+
+.page-legalitas .legalitas-list li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.page-legalitas .dokumen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* 🔴 Default merah - teks putih */
+.page-legalitas .dokumen-card {
+  background: #b91c1c;
+  border: 2px solid #b91c1c;
+  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+  cursor: default;
+}
+
+/* ⚪ Hover putih - teks merah */
+.page-legalitas .dokumen-card:hover {
+  background-color: #fff;
+  color: #b91c1c;
+  transform: translateY(-5px);
+}
+
+/* Ikon putih saat default merah */
+.page-legalitas .dokumen-card img {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s;
+}
+
+/* Ikon normal saat hover */
+.page-legalitas .dokumen-card:hover img {
+  filter: none;
+}
+
+.page-legalitas .dokumen-card h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}

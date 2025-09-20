@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+.customers {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.customers h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.customer-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
+}
+
+.customer-logos img {
+  width: clamp(120px, 15vw, 120px);
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.customer-logos img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}

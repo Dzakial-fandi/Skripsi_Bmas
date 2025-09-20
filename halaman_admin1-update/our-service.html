@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- iconss -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Admin</title>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+      <a href="#" class="brand">
+        <i class="plus-medical"></i>
+        <span class="text">SmartFiltration</span>
+      </a>
+
+      <ul class="side-menu top">
+        <li>
+          <a href="dashboard.html">
+            <i class="bx bxs-dashboard"></i>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="katalog-filter.html">
+            <i class="bx bxs-shopping-bag-alt"></i>
+            <span class="text">Katalog Filter</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="our-service.html">
+            <i class="bx bxs-group"></i>
+            <span class="text">Our Service</span>
+          </a>
+        </li>
+        <li>
+          <a href="customer-base.html">
+            <i class="bx bxs-message-dots"></i>
+            <span class="text">Our Customer Base</span>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="register.html">
+            <i class="bx bxs-group"></i>
+            <span class="text">Register</span>
+          </a>
+        </li> -->
+      </ul>
+      <ul class="side-menu">
+        <!-- <li>
+          <a href="#">
+            <i class="bx bxs-cog"></i>
+            <span class="text">Settings</span>
+          </a>
+        </li> -->
+        <li>
+          <a href="#" class="logout">
+            <i class="bx bxs-log-out-circle"></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+        <i class="bx bx-menu"></i>
+        <a href="#" class="nav-link">Categories</a>
+        <form action="#">
+          <!-- <div class="form-input">
+            <input type="search" placeholder="Search..." />
+            <button type="submit" class="search-btn">
+              <i class="bx bx-search"></i>
+            </button>
+          </div> -->
+        </form>
+        <input type="checkbox" id="switch-mode" hidden />
+        <label for="switch-mode" class="switch-mode"></label>
+
+        <a href="#" class="profile">
+          <img src="o.jpg" />
+        </a>
+      </nav>
+      <!-- NAVBAR -->
+
+      <!-- MAIN -->
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1>Our Service</h1>
+            <ul class="breadcrumb">
+              <li>
+                <a href="#">Our Service</a>
+              </li>
+              <li><i class="bx bx-chevron-right"></i></li>
+              <li>
+                <a class="active" href="dashboard.html">Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="table-data">
+          <div class="order">
+            <div class="tools-bar">
+              <div class="bar-cari">
+                <label for="search"><i class="bx bx-search"></i></label>
+                <input type="text" id="search" placeholder="Cari..." />
+              </div>
+              <button class="btn-tambah" onclick="openUpModal()">
+                <span class="material-symbols-outlined">add</span> Tambah
+              </button>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>img</th>
+                  <th>jenis</th>
+                  <th>Nama filter</th>
+                  <th>Deskripsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="../skripsi bmas 2/img/8.png" />
+                    <!-- <p>Al</p> -->
+                  </td>
+                  <td>oil filter</td>
+                  <td>filter penyaring</td>
+                  <td>
+                    <div class="desc-cell">
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Nulla vero eum explicabo aspernatur doloremque
+                      consectetur, deserunt perspiciatis possimus, adipisci at
+                      commodi natus? Enim laudantium officiis aut magnam dolorem
+                      sapiente exercitationem. Lorem ipsum dolor sit amet
+                      consectetur adipisicing elit. Voluptas adipisci, quae,
+                      quibusdam porro ipsam nobis vero eum reprehenderit rem
+                      obcaecati minima aliquid est. Totam, accusamus unde! Totam
+                      aliquid repudiandae velit.
+                    </div>
+                  </td>
+                  <td>
+                    <div class="action-buttons">
+                      <span onclick="openUpdateModal()" class="status update"
+                        >Edit</span
+                      >
+                      <span class="status delete">Delete</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src="../skripsi bmas 2/img/6.png" />
+                    <!-- <p>Al</p> -->
+                  </td>
+                  <td>oil filter</td>
+                  <td>filter penyaring</td>
+                  <td>
+                    <div class="desc-cell">
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Nulla vero eum explicabo aspernatur doloremque
+                      consectetur, deserunt perspiciatis possimus, adipisci at
+                      commodi natus? Enim laudantium officiis aut magnam dolorem
+                      sapiente exercitationem. Lorem ipsum dolor sit amet
+                      consectetur adipisicing elit. Voluptas adipisci, quae,
+                      quibusdam porro ipsam nobis vero eum reprehenderit rem
+                      obcaecati minima aliquid est. Totam, accusamus unde! Totam
+                      aliquid repudiandae velit.
+                    </div>
+                  </td>
+                  <td>
+                    <div class="action-buttons">
+                      <span onclick="openUpdateModal()" class="status update"
+                        >Edit</span
+                      >
+                      <span class="status delete">Delete</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+      <!-- MAIN -->
+    </section>
+    <!-- Modal Edit -->
+    <div class="updateModal" id="editModal">
+      <div class="container">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h1>Edit Data</h1>
+        <form action="#" class="form">
+          <div class="input-box">
+            <label for="jenis">Jenis</label>
+            <select id="jenis" name="jenis" required>
+              <option value="" disabled selected>Pilih Jenis</option>
+              <option value="oil filter">Oil Filter</option>
+              <option value="fuel filter">Fuel Filter</option>
+              <option value="air filter">Air Filter</option>
+              <option value="filter strainer">Filter Strainer</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <label for="">Nama Filter</label>
+            <input type="text" placeholder="Enter Nama Filter" required />
+          </div>
+
+          <div class="input-box">
+            <label for="">Deskripsi</label>
+            <textarea placeholder="Enter Deskripsi" required></textarea>
+          </div>
+
+          <div class="input-box">
+            <label for="">Image</label>
+            <input type="file" required />
+          </div>
+
+          <button type="submit" id="submit">Simpan</button>
+        </form>
+      </div>
+    </div>
+    <!-- modal edir end -->
+    <!-- modal tambah -->
+    <div class="updateModal" id="upmodal">
+      <div class="container">
+        <span class="close-btn" onclick="closeUpModal()">&times;</span>
+        <h1>Tambah Data</h1>
+        <form action="#" class="form">
+          <div class="input-box">
+            <label for="jenis">Jenis</label>
+            <select id="jenis" name="jenis" required>
+              <option value="" disabled selected>Pilih Jenis</option>
+              <option value="oil filter">Oil Filter</option>
+              <option value="fuel filter">Fuel Filter</option>
+              <option value="air filter">Air Filter</option>
+              <option value="filter strainer">Filter Strainer</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <label for="">Nama Filter</label>
+            <input type="text" placeholder="Enter Nama Filter" required />
+          </div>
+          <div class="input-box">
+            <label for="">Deskripsi</label>
+            <textarea placeholder="Enter Deskripsi" required></textarea>
+          </div>
+          <div class="input-box">
+            <label for="">Image</label>
+            <input type="file" required />
+          </div>
+          <button type="submit">Simpan</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- modal update end -->
+    <!-- CONTENT -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
